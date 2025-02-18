@@ -1,5 +1,13 @@
-import './index.css';
-import { MyClass } from './example-unit';
+import './styles/clock.css';
+import { ClockController } from './controllers/ClockController';
+import { ClockView } from './views/ClockView';
+import { ClockModel } from './models/ClockModel';
 
-const a = new MyClass(2);
-console.log('number is', a.get());
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const model = new ClockModel();
+    const view = new ClockView();
+    new ClockController(model, view);
+  });
+  

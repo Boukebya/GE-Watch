@@ -1,7 +1,7 @@
 import { ClockModel } from '../models/ClockModel';
 import { ClockView } from '../views/ClockView';
 import { ClockController } from '../controllers/ClockController';
-
+import { createHtmlElement } from '../utils/initHtml';
 
 export class Clock {
     model: ClockModel;
@@ -9,36 +9,28 @@ export class Clock {
     controller: ClockController;
 
     constructor(containerId: string, gmt: number) {
-        const clockContainer = document.createElement('div');
+        const clockContainer = createHtmlElement('div', '', ['clock-container']);
         clockContainer.id = `clock-container-${containerId}`;
-        clockContainer.classList.add('clock-container');
 
-        const buttonContainer = document.createElement('div');
+        const buttonContainer = createHtmlElement('div', '', []);
         buttonContainer.id = `button-container-${containerId}`;
 
-        const modeButton = document.createElement('button');
+        const modeButton = createHtmlElement('button', 'Mode', []);
         modeButton.id = `mode-button-${containerId}`;
-        modeButton.textContent = 'Mode';
 
-        const increaseButton = document.createElement('button');
+        const increaseButton = createHtmlElement('button', 'Increment', []);
         increaseButton.id = `increase-button-${containerId}`;
-        increaseButton.textContent = 'Increment';
 
-        const switchFormatButton = document.createElement('button');
+        const switchFormatButton = createHtmlElement('button', 'Switch Format', []);
         switchFormatButton.id = `switch-format-button-${containerId}`;
-        switchFormatButton.textContent = 'Switch Format';
 
-        const lightButton = document.createElement('button');
+        const lightButton = createHtmlElement('button', 'Light Mode', []);
         lightButton.id = `light-button-${containerId}`;
-        lightButton.textContent = 'Light Mode';
 
-        const clockDisplay = document.createElement('div');
-        clockDisplay.id = `clock-container-${containerId}`;
-        clockDisplay.classList.add('clock-time');
+        const clockDisplay = createHtmlElement('div', '', ['clock-time']);
+        clockDisplay.id = `clockDisplay-container-${containerId}`; // Corrected ID
 
-        const deleteButton = document.createElement('button');
-        deleteButton.textContent = 'X';
-        deleteButton.classList.add('delete-button');
+        const deleteButton = createHtmlElement('button', 'X', ['delete-button']);
         buttonContainer.appendChild(deleteButton);
 
         deleteButton.addEventListener('click', () => {

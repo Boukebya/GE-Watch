@@ -1,4 +1,5 @@
-import '../styles/display.css';
+import '../css/display.css';
+import { createHtmlElement } from '../utils/initHtml';
 
 export class Display {
     private container: HTMLElement;
@@ -12,10 +13,8 @@ export class Display {
     constructor(container: HTMLElement) {
         this.container = container;
 
-        this.timeDigitsContainer = document.createElement('div');
-        this.timeDigitsContainer.classList.add('time-digits');
+        this.timeDigitsContainer = createHtmlElement('div', '', ['time-digits']);
         this.container.appendChild(this.timeDigitsContainer);
-
         this.hoursContainer = document.createElement('span');
         this.minutesContainer = document.createElement('span');
         this.secondsContainer = document.createElement('span');
@@ -26,35 +25,34 @@ export class Display {
         this.timeDigitsContainer.appendChild(document.createTextNode(':'));
         this.timeDigitsContainer.appendChild(this.secondsContainer);
 
-        this.ampmContainer = document.createElement('div');
-        this.ampmContainer.classList.add('ampm-container');
+        this.ampmContainer = createHtmlElement('div', '', ['ampm-container']);
         this.container.appendChild(this.ampmContainer);
     }
 
-updateTime(time: string): void {
-    let [hours, minutes, seconds] = time.split(':');
-    let displayHours = hours;
-    let ampm = '';
+    updateTime(time: string): void {
+        let [hours, minutes, seconds] = time.split(':');
+        let displayHours = hours;
+        let ampm = '';
 
-    if (!this.is24HourFormat) {
-        let hoursNum = parseInt(hours, 10);
-        ampm = hoursNum < 12 || hoursNum === 24 ? 'AM' : 'PM';
+        if (!this.is24HourFormat) {
+            let hoursNum = parseInt(hours, 10);
+            ampm = hoursNum < 12 || hoursNum === 24 ? 'AM' : 'PM';
 
-        if (hoursNum === 0) {
-            displayHours = "12";
-        } else if (hoursNum === 12) {
-            displayHours = "12";
-        } else {
-            displayHours = (hoursNum % 12).toString();
+            if (hoursNum === 0) {
+                displayHours = "12";
+            } else if (hoursNum === 12) {
+                displayHours = "12";
+            } else {
+                displayHours = (hoursNum % 12).toString();
+            }
+            displayHours = displayHours.padStart(2, '0');
         }
-        displayHours = displayHours.padStart(2, '0');
-    }
 
-    this.hoursContainer.textContent = displayHours;
-    this.minutesContainer.textContent = minutes;
-    this.secondsContainer.textContent = seconds;
-    this.ampmContainer.textContent = ampm;
-}
+        this.hoursContainer.textContent = displayHours;
+        this.minutesContainer.textContent = minutes;
+        this.secondsContainer.textContent = seconds;
+        this.ampmContainer.textContent = ampm;
+    }
 
     blinkElement(isBlinking: boolean, editMode: number): void {
         this.hoursContainer.classList.remove('blinking');

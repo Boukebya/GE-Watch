@@ -27,7 +27,7 @@ This project is a technical test including the creation of a clock using only va
 - Manage AM/PM and 24 hours format management
 - Delete button for a clock
 - Button to add a clock with GMT time management
-- Synchronize clock (Can't use NTP) [TODO]
+- Synchronize clock (Can't use NTP) isn't very efficient for the moment
 
 ## Class diagram
 
@@ -39,7 +39,3 @@ This project is a technical test including the creation of a clock using only va
 npm install
 npm run start
 ```
-
-## Current improvements
-
-- Do part B (Will be done by the time as I'm currently doing It)

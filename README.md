@@ -18,6 +18,16 @@ This project is a technical test including the creation of a clock using only va
 - Time display even when being modified
 - Hours or minutes blink when the mode button is used
 
+### Part B
+
+#### Functionalities
+
+- GMT time management on Clock creation
+- Switch button to switch format AM/PM - 24 hours [TODO]
+- Manage AM/PM and 24 hours format management [TODO]
+- Delete button for a clock [TODO]
+- Button to add a clock with GMT time management [TODO]
+
 ## Class diagram
 
 ![Alt text](diagram.png)
@@ -31,5 +41,4 @@ npm run start
 
 ## Current improvements
 
-- Make a display class to display time, as It can be pretty confusing right now, I made the class diagram quickly because I absolutely wanted to have a first version ready as soon as possible
 - Do part B (Will be done by the time as I'm currently doing It)

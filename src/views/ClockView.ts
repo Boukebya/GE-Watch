@@ -5,13 +5,15 @@ export class ClockView {
     private modeButton: HTMLElement;
     private increaseButton: HTMLElement;
     private lightButton: HTMLElement;
+    private switchFormatButton: HTMLElement;
     private display: Display;
 
-    constructor(clockContainer: HTMLElement, modeButton: HTMLElement, increaseButton: HTMLElement, lightButton: HTMLElement) {
+    constructor(clockContainer: HTMLElement, modeButton: HTMLElement, increaseButton: HTMLElement, lightButton: HTMLElement, switchFormatButton: HTMLElement) {
         this.clockContainer = clockContainer;
         this.modeButton = modeButton;
         this.increaseButton = increaseButton;
         this.lightButton = lightButton;
+        this.switchFormatButton = switchFormatButton;
 
         this.display = new Display(clockContainer);
     }
@@ -32,10 +34,18 @@ export class ClockView {
         this.lightButton.addEventListener('click', callback);
     }
 
+    bindSwitchFormatButton(callback: () => void): void {
+        this.switchFormatButton.addEventListener('click', callback);
+    }
+
     blinkElement(isBlinking: boolean, editMode: number): void {
         this.display.blinkElement(isBlinking, editMode);
     }
     toggleLightMode(): void {
         this.clockContainer.classList.toggle('light-mode');
+    }
+
+    toggleFormat(): void {
+        this.display.toggleFormat();
     }
 }

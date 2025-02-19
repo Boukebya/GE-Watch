@@ -13,7 +13,7 @@ body {
 
 /* Clock container */
 .clock-container {
-  width: 450px;
+  width: 600px;
   padding: 20px;
   position: relative;
   display: flex;
@@ -69,7 +69,7 @@ body.light-mode button:hover {
 
 /* Clock Time Display */
 .clock-time {
-  width: 450px;
+  width: 100%;
   font-weight: bold;
   background-color: #FFF;
   color: black;

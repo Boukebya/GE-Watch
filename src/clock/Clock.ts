@@ -23,6 +23,10 @@ export class Clock {
         increaseButton.id = `increase-button-${containerId}`;
         increaseButton.textContent = 'Increment';
 
+        const switchFormatButton = document.createElement('button');
+        switchFormatButton.id = `switch-format-button-${containerId}`;
+        switchFormatButton.textContent = 'Switch Format';
+
         const lightButton = document.createElement('button');
         lightButton.id = `light-button-${containerId}`;
         lightButton.textContent = 'Light Mode';
@@ -34,6 +38,7 @@ export class Clock {
         // Append elements
         buttonContainer.appendChild(modeButton);
         buttonContainer.appendChild(increaseButton);
+        buttonContainer.appendChild(switchFormatButton);
         buttonContainer.appendChild(lightButton);
 
         clockContainer.appendChild(buttonContainer);
@@ -44,7 +49,7 @@ export class Clock {
 
         // Initialize Model, View, and Controller
         this.model = new ClockModel(gmt);
-        this.view = new ClockView(clockDisplay, modeButton, increaseButton, lightButton);
+        this.view = new ClockView(clockDisplay, modeButton, increaseButton, lightButton, switchFormatButton);
         this.controller = new ClockController(this.model, this.view);
     }
 }

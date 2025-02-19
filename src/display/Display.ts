@@ -3,6 +3,8 @@ export class Display {
     private hoursContainer: HTMLElement;
     private minutesContainer: HTMLElement;
     private secondsContainer: HTMLElement;
+    private ampmContainer: HTMLElement;
+    private is24HourFormat: boolean = true;
 
     constructor(container: HTMLElement) {
         this.container = container;
@@ -15,14 +17,34 @@ export class Display {
         this.container.appendChild(this.minutesContainer);
         this.container.appendChild(document.createTextNode(':'));
         this.container.appendChild(this.secondsContainer);
+        this.ampmContainer = document.createElement('span');
+        this.container.appendChild(this.ampmContainer);
     }
 
-    updateTime(time: string): void {
-        const [hours, minutes, seconds] = time.split(':');
-        this.hoursContainer.textContent = hours;
-        this.minutesContainer.textContent = minutes;
-        this.secondsContainer.textContent = seconds;
+updateTime(time: string): void {
+    let [hours, minutes, seconds] = time.split(':');
+    let displayHours = hours;
+    let ampm = '';
+
+    if (!this.is24HourFormat) {
+        let hoursNum = parseInt(hours, 10);
+        ampm = hoursNum < 12 || hoursNum === 24 ? 'AM' : 'PM';
+
+        if (hoursNum === 0) {
+            displayHours = "12";
+        } else if (hoursNum === 12) {
+            displayHours = "12";
+        } else {
+            displayHours = (hoursNum % 12).toString();
+        }
+        displayHours = displayHours.padStart(2, '0');
     }
+
+    this.hoursContainer.textContent = displayHours;
+    this.minutesContainer.textContent = minutes;
+    this.secondsContainer.textContent = seconds;
+    this.ampmContainer.textContent = ampm;
+}
 
     blinkElement(isBlinking: boolean, editMode: number): void {
         this.hoursContainer.classList.remove('blinking');
@@ -35,5 +57,9 @@ export class Display {
                 this.minutesContainer.classList.add('blinking');
             }
         }
+    }
+
+    toggleFormat(): void {
+        this.is24HourFormat = !this.is24HourFormat;
     }
 }

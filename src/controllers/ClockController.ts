@@ -14,6 +14,7 @@ export class ClockController {
     this.view.bindModeButton(() => this.toggleEditMode());
     this.view.bindIncreaseButton(() => this.increaseTime());
     this.view.bindLightButton(() => this.view.toggleLightMode());
+    this.view.bindSwitchFormatButton(() => this.toggleFormat());
 
     // Initialize the view with the current time
     this.updateView();
@@ -52,4 +53,9 @@ export class ClockController {
     }
     this.updateView(); // Update the view after modifying the time
   }
+
+  private toggleFormat(): void {
+    this.view.toggleFormat();
+    this.updateView(); // Update the view immediately
+}
 }

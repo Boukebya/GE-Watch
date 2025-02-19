@@ -5,54 +5,39 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
   margin: 0;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 /* Clock container */
-#clock-container {
+.clock-container {
   width: 450px;
-  font-size: 6em;
-  font-weight: bold;
-  background-color: #FFF;
-  color: black;
   padding: 20px;
-  z-index: 10;
   position: relative;
-  width: fit-content;
-  text-align: center;
-  border-radius: 20px;
-  border: 5px solid #2980b9;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-/* Light Mode for Clock Container */
-#clock-container.light-mode {
-  background-color: #FBE106;
-  border-color: #f9d107;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Blinking animation for edit mode */
+/* Blinking animation */
 .blinking {
   animation: blink 1s step-start infinite;
 }
 
 @keyframes blink {
   50% {
-    opacity: 0;
+      opacity: 0;
   }
 }
 
 /* Button container */
-#button-container {
+.button-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
-  flex-direction: row;
-  position: relative;
+  margin-bottom: 10px;
+  width: auto;
   z-index: 5;
 }
 
@@ -66,8 +51,6 @@ button {
   margin: 0 10px;
   border-radius: 30px 30px 0 0;
   cursor: pointer;
-  position: relative;
-  z-index: 5;
 }
 
 /* Pressure effect */
@@ -76,10 +59,33 @@ button:active {
 }
 
 /* Light mode button */
-button#light-button {
+button[id^="light-button-"] {
   background-color: #FBE106;
 }
 
 body.light-mode button:hover {
   background-color: #FBE106;
+}
+
+/* Clock Time Display */
+.clock-time {
+  width: 450px;
+  font-weight: bold;
+  background-color: #FFF;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  border-radius: 20px;
+  border: 5px solid #2980b9;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+  margin-bottom: 20px;
+  font-size: 6em;
+  z-index: 10;
+}
+
+/* Light Mode for Clock time */
+.clock-time.light-mode {
+  background-color: #FBE106;
+  border-color: #f9d107;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
 }

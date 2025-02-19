@@ -8,24 +8,23 @@ export class ClockView {
     private minutesContainer: HTMLElement;
     private secondsContainer: HTMLElement;
 
-    constructor(containerId: string) {
-      // DOM elements
-      this.clockContainer = document.getElementById('clock-container')!;
-      this.modeButton = document.getElementById('mode-button')!;
-      this.increaseButton = document.getElementById('increase-button')!;
-      this.lightButton = document.getElementById('light-button')!;
-      
-      // We separate time
-      this.hoursContainer = document.createElement('span');
-      this.minutesContainer = document.createElement('span');
-      this.secondsContainer = document.createElement('span');
-      
-      // Add : separators
-      this.clockContainer.appendChild(this.hoursContainer);
-      this.clockContainer.appendChild(document.createTextNode(':'));
-      this.clockContainer.appendChild(this.minutesContainer);
-      this.clockContainer.appendChild(document.createTextNode(':'));
-      this.clockContainer.appendChild(this.secondsContainer);
+    constructor(clockContainer: HTMLElement, modeButton: HTMLElement, increaseButton: HTMLElement, lightButton: HTMLElement) {
+        this.clockContainer = clockContainer;
+        this.modeButton = modeButton;
+        this.increaseButton = increaseButton;
+        this.lightButton = lightButton;
+
+        // We separate time
+        this.hoursContainer = document.createElement('span');
+        this.minutesContainer = document.createElement('span');
+        this.secondsContainer = document.createElement('span');
+
+        // Add : separators
+        this.clockContainer.appendChild(this.hoursContainer);
+        this.clockContainer.appendChild(document.createTextNode(':'));
+        this.clockContainer.appendChild(this.minutesContainer);
+        this.clockContainer.appendChild(document.createTextNode(':'));
+        this.clockContainer.appendChild(this.secondsContainer);
     }
 
     /**

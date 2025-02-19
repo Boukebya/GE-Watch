@@ -1,13 +1,9 @@
 import './styles/clock.css';
-import { ClockController } from './controllers/ClockController';
-import { ClockView } from './views/ClockView';
-import { ClockModel } from './models/ClockModel';
-
-
+import { Clock } from './clock/Clock';
 
 document.addEventListener("DOMContentLoaded", () => {
-    const model = new ClockModel();
-    const view = new ClockView();
-    new ClockController(model, view);
-  });
+    new Clock('clock-1', 0);
+
+});
+
   

@@ -8,7 +8,7 @@ export class ClockView {
     private minutesContainer: HTMLElement;
     private secondsContainer: HTMLElement;
 
-    constructor() {
+    constructor(containerId: string) {
       // DOM elements
       this.clockContainer = document.getElementById('clock-container')!;
       this.modeButton = document.getElementById('mode-button')!;

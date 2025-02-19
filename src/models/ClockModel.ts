@@ -7,9 +7,10 @@ export class ClockModel {
     private manualUpdate: boolean = false;
     private manualUpdateTimeout: any;
 
-    constructor() {
+    constructor(gmt : number = 0) {
         const now = new Date();
-        this.hours = now.getHours();
+        const hours = now.getHours() + gmt;
+        this.hours = hours;
         this.minutes = now.getMinutes();
         this.seconds = now.getSeconds();
     }

@@ -24,7 +24,7 @@ This project is a technical test including the creation of a clock using only va
 
 - GMT time management on Clock creation
 - Switch button to switch format AM/PM - 24 hours
-- Manage AM/PM and 24 hours format management [TODO]
+- Manage AM/PM and 24 hours format management
 - Delete button for a clock [TODO]
 - Button to add a clock with GMT time management [TODO]
 

@@ -1,3 +1,5 @@
+import '../styles/display.css';
+
 export class Display {
     private container: HTMLElement;
     private hoursContainer: HTMLElement;
@@ -5,19 +7,27 @@ export class Display {
     private secondsContainer: HTMLElement;
     private ampmContainer: HTMLElement;
     private is24HourFormat: boolean = true;
+    private timeDigitsContainer: HTMLElement;
 
     constructor(container: HTMLElement) {
         this.container = container;
+
+        this.timeDigitsContainer = document.createElement('div');
+        this.timeDigitsContainer.classList.add('time-digits');
+        this.container.appendChild(this.timeDigitsContainer);
+
         this.hoursContainer = document.createElement('span');
         this.minutesContainer = document.createElement('span');
         this.secondsContainer = document.createElement('span');
 
-        this.container.appendChild(this.hoursContainer);
-        this.container.appendChild(document.createTextNode(':'));
-        this.container.appendChild(this.minutesContainer);
-        this.container.appendChild(document.createTextNode(':'));
-        this.container.appendChild(this.secondsContainer);
-        this.ampmContainer = document.createElement('span');
+        this.timeDigitsContainer.appendChild(this.hoursContainer);
+        this.timeDigitsContainer.appendChild(document.createTextNode(':'));
+        this.timeDigitsContainer.appendChild(this.minutesContainer);
+        this.timeDigitsContainer.appendChild(document.createTextNode(':'));
+        this.timeDigitsContainer.appendChild(this.secondsContainer);
+
+        this.ampmContainer = document.createElement('div');
+        this.ampmContainer.classList.add('ampm-container');
         this.container.appendChild(this.ampmContainer);
     }
 

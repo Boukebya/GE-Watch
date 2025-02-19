@@ -1,0 +1,58 @@
+.clock-time { /* Style général du conteneur de l'heure */
+    width: 100%;
+    font-weight: bold;
+    background-color: #FFF;
+    color: black;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    border: 5px solid #2980b9;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+    font-size: 6em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25em;
+    white-space: nowrap;
+}
+
+.clock-time.light-mode {
+    background-color: #FBE106;
+    border-color: #f9d107;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.blinking {
+    animation: blink 1s step-start infinite;
+}
+
+.clock-time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    white-space: nowrap;
+}
+
+.time-digits {
+    display: flex;
+    align-items: center;
+    width: min-content;
+}
+
+.ampm-container {
+    width: 1em;
+    text-align: center;
+}
+
+.ampm {
+    font-size: 0.25em;
+    vertical-align: super;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}

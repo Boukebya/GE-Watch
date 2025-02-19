@@ -1,4 +1,4 @@
-import { Display } from '../display/Display';
+import { Display } from '../classes/DisplayClass';
 
 export class ClockView {
     private clockContainer: HTMLElement;

@@ -1,6 +1,6 @@
 import './styles/clock.css';
 import './styles/index.css';
-import { Clock } from './clock/Clock';
+import { Clock } from './classes/ClockClass';
 
 let clockCounter = 1;
 

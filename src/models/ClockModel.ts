@@ -4,12 +4,18 @@ export class ClockModel {
     private hours: number;
     private minutes: number;
     private seconds: number;
-    private manualUpdate: boolean = false;
-    private manualUpdateTimeout: any;
 
-    constructor(gmt : number = 0) {
+    constructor(gmt: number = 0) {
         const now = new Date();
-        const hours = now.getHours() + gmt;
+        let hours = now.getHours() + gmt;
+
+        // Handle cases where GMT offset makes hours negative or greater than 23
+        if (hours < 0) {
+            hours = 24 + hours;
+        } else if (hours > 23) {
+            hours = hours % 24;
+        }
+
         this.hours = hours;
         this.minutes = now.getMinutes();
         this.seconds = now.getSeconds();
@@ -24,15 +30,13 @@ export class ClockModel {
         return `${formatTime(this.hours)}:${formatTime(this.minutes)}:${formatTime(this.seconds)}`;
     }
 
-
     /**
      * Increment the hours by one, wrapping around to 0 after 23.
      */
     increaseHours(): void {
         this.hours = (this.hours + 1) % 24;
-        this.setManualUpdate();
     }
-
+    
     /**
      * Increment the minutes by one, wrapping around to 0 after 59.
      * If minutes roll over, it will increment the hours.
@@ -42,19 +46,6 @@ export class ClockModel {
         if (this.minutes === 0) {
             this.increaseHours();
         }
-        this.setManualUpdate();
-    }
-
-    /**
-     * Marks the clock as manually updated and resets the manual update flag
-     * after a short delay (1 second).
-     */
-    private setManualUpdate() {
-        this.manualUpdate = true;
-        clearTimeout(this.manualUpdateTimeout);
-        this.manualUpdateTimeout = setTimeout(() => {
-            this.manualUpdate = false;
-        }, 1); // Allow the update flag to reset after 1 millisecond
     }
 
     /**
@@ -62,13 +53,9 @@ export class ClockModel {
      * This method should be called every second manually from outside.
      */
     updateTime(): void {
-        if (!this.manualUpdate) {
-            this.seconds = (this.seconds + 1) % 60;
-
-            if (this.seconds === 0) {
-                // If seconds reach 00, increment minutes
-                this.increaseMinutes();
-            }
+        this.seconds = (this.seconds + 1) % 60;
+        if (this.seconds === 0) {
+            this.increaseMinutes();
         }
     }
 }

@@ -1,9 +1,8 @@
-.clock-time { /* Style général du conteneur de l'heure */
+.clock-time {
     width: 100%;
     font-weight: bold;
     background-color: #FFF;
     color: black;
-    padding: 20px;
     text-align: center;
     border-radius: 20px;
     border: 5px solid #2980b9;
@@ -31,7 +30,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 0.5em;
     white-space: nowrap;
 }
 

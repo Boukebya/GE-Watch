@@ -2,6 +2,7 @@ import { ClockModel } from '../models/ClockModel';
 import { ClockView } from '../views/ClockView';
 import { ClockController } from '../controllers/ClockController';
 
+
 export class Clock {
     model: ClockModel;
     view: ClockView;
@@ -34,6 +35,15 @@ export class Clock {
         const clockDisplay = document.createElement('div');
         clockDisplay.id = `clock-container-${containerId}`;
         clockDisplay.classList.add('clock-time');
+
+        const deleteButton = document.createElement('button');
+        deleteButton.textContent = 'X';
+        deleteButton.classList.add('delete-button');
+        buttonContainer.appendChild(deleteButton);
+
+        deleteButton.addEventListener('click', () => {
+            clockContainer.remove();
+        });
 
         // Append elements
         buttonContainer.appendChild(modeButton);

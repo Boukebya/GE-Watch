@@ -23,7 +23,7 @@ This project is a technical test including the creation of a clock using only va
 #### Functionalities
 
 - GMT time management on Clock creation
-- Switch button to switch format AM/PM - 24 hours [TODO]
+- Switch button to switch format AM/PM - 24 hours
 - Manage AM/PM and 24 hours format management [TODO]
 - Delete button for a clock [TODO]
 - Button to add a clock with GMT time management [TODO]

@@ -27,7 +27,7 @@ This project is a technical test including the creation of a clock using only va
 - Manage AM/PM and 24 hours format management
 - Delete button for a clock
 - Button to add a clock with GMT time management
-- Synchronize clock (Can't use NTP) isn't very efficient for the moment
+- Synchronize clock using shared time service
 
 ## Class diagram
 

@@ -28,7 +28,7 @@ export class Clock {
         lightButton.id = `light-button-${containerId}`;
 
         const clockDisplay = createHtmlElement('div', '', ['clock-time']);
-        clockDisplay.id = `clockDisplay-container-${containerId}`; // Corrected ID
+        clockDisplay.id = `clockDisplay-container-${containerId}`;
 
         const deleteButton = createHtmlElement('button', 'X', ['delete-button']);
         buttonContainer.appendChild(deleteButton);

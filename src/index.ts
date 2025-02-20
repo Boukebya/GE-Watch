@@ -2,7 +2,7 @@ import './css/clock.css';
 import './css/index.css';
 import { Clock } from './classes/ClockClass';
 
-let clockCounter = 1;
+let clockCounter = 0;
 
 document.addEventListener("DOMContentLoaded", () => {
     const addClockButton = document.getElementById('add-clock-button');
@@ -41,6 +41,4 @@ document.addEventListener("DOMContentLoaded", () => {
             modal.style.display = 'none'; // Remove modal
         });
     }
-
-    new Clock('clock-0', 0);
 });

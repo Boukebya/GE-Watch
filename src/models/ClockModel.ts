@@ -12,7 +12,8 @@ export class ClockModel {
         // Handle cases where GMT offset makes hours negative or greater than 23
         if (hours < 0) {
             hours = 24 + hours;
-        } else if (hours > 23) {
+        }
+        if (hours > 23) {
             hours = hours % 24;
         }
 

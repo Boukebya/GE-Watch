@@ -4,7 +4,7 @@ import { ClockView } from '../views/ClockView';
 export class ClockController {
   private model: ClockModel;
   private view: ClockView;
-  private editMode: number = 0; // 0 = Nothing, 1 = hours, 2 = minutes
+  private editMode: number = 0; // 0 = nothing, 1 = hours, 2 = minutes
 
   constructor(model: ClockModel, view: ClockView) {
     this.model = model;
@@ -51,11 +51,14 @@ export class ClockController {
     } else if (this.editMode === 2) {
       this.model.increaseMinutes();
     }
-    this.updateView(); // Update the view after modifying the time
+    this.updateView();
   }
 
+  /**
+   * Toggles the format between 12-hours and 24-hours.
+   */
   private toggleFormat(): void {
     this.view.toggleFormat();
-    this.updateView(); // Update the view immediately
+    this.updateView();
 }
 }

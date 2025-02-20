@@ -1,4 +1,3 @@
-
 /**
 * Format a number to ensure it's always 2 digits (e.g., 5 becomes 05).
 * 

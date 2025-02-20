@@ -38,12 +38,12 @@ export class Display {
             let hoursNum = parseInt(hours, 10);
             ampm = hoursNum < 12 || hoursNum === 24 ? 'AM' : 'PM';
 
+            displayHours = (hoursNum % 12).toString();
             if (hoursNum === 0) {
                 displayHours = "12";
-            } else if (hoursNum === 12) {
+            }
+            if (hoursNum === 12) {
                 displayHours = "12";
-            } else {
-                displayHours = (hoursNum % 12).toString();
             }
             displayHours = displayHours.padStart(2, '0');
         }

@@ -22,7 +22,7 @@ export class ClockModel {
      * Initialize the hours based on the GMT offset on clock creation
      * 
      * @returns {number} Hours based on GMT offset.
-     */
+    */
     private calculateInitialHours(): number {
         let hours = new Date().getHours() + this.gmt;
         // Handle cases where GMT offset makes hours negative or greater than 23
@@ -39,7 +39,7 @@ export class ClockModel {
      * Get the current time in 'hh:mm:ss' format.
      * 
      * @returns {string} - The formatted time string.
-     */
+    */
     getTime(): string {
         return `${formatTime(this.hours)}:${formatTime(this.minutes)}:${formatTime(sharedTimeService.getSeconds())}`;
     }
@@ -79,7 +79,7 @@ export class ClockModel {
 
     /**
      * Update the time using the seconds from sharedTimeService and update the model accordingly.
-     */
+    */
     private updateTime(): void {
         const seconds = sharedTimeService.getSeconds();
         if (seconds === 0) {

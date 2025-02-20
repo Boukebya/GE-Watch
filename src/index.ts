@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const gmtOffset = parseInt((document.getElementById('gmt-offset') as HTMLInputElement).value, 10) || 0;
             new Clock(`clock-${clockCounter}`, gmtOffset);
             clockCounter++;
-            modal.style.display = 'none'; // Remove modal
+            modal.style.display = 'none'; // Hide the modal
         });
     }
 });

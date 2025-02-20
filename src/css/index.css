@@ -9,6 +9,7 @@ body {
   background-color: #f4f4f4;
   gap: 20px;
 }
+
 button#add-clock-button {
   background-color: #145e18;
   color: white;
@@ -24,6 +25,7 @@ button#add-clock-button {
   justify-content: center;
   align-items: center;
 }
+
 .modal {
   display: none;
   position: fixed;
@@ -57,13 +59,14 @@ button#add-clock-button {
   color: #000;
   cursor: pointer;
 }
+
 #create-clock {
   background-color: #145e18;
   color: white;
   border: none;
   padding: 10px 20px;
-  margin-top: 10px; /* Add some space above the button */
+  margin-top: 10px;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 1em; /* Adjust font size as needed */
+  font-size: 1em;
 }
